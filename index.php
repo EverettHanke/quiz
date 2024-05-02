@@ -31,7 +31,7 @@ $f3->route('GET|POST /survey', function ($f3)
         {
             $f3->set('SESSION.name', $_POST['name']);
             $f3->set('SESSION.box', $_POST['box']);
-            $f3->reroute('views/end');
+            $f3->reroute('end');
         }
     }
 
@@ -42,8 +42,9 @@ $f3->route('GET|POST /survey', function ($f3)
     echo $view->render('views/survey.html');
 });
 //reroute for end page
-$f3->route('POST /end', function ($f3)
+$f3->route('GET|POST /end', function ($f3)
 {
+
     $view = new Template();
     echo $view->render('views/end.html');
 });
